@@ -1,6 +1,7 @@
 import Inputmask from 'inputmask';
 import JustValidate from 'just-validate';
 import { Notification } from './notification';
+import { sendData } from './api';
 
 export const initForm = (bookingForm, bookingInputFullname, bookingInputPhone, bookingInputTicket, ChangeSection, bookingComediansList) => {
   const validate = new JustValidate(bookingForm, {
@@ -24,7 +25,7 @@ export const initForm = (bookingForm, bookingInputFullname, bookingInputPhone, b
   {
     validator() {
       const phone = bookingInputPhone.inputmask.unmaskedvalue();
-      return phone.length === 10 && !!Number(ticket);
+      return phone.length === 10 && !!Number(phone);
     },
     errorMessage: 'Некорректный телефон',
   },
