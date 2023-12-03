@@ -11,8 +11,8 @@ export const initChangeSection = (bookingForm, event, booking, eventButtonReserv
   const changeSection = () => {
     event.classList.toggle('event__hidden');
     booking.classList.toggle('booking__hidden');
-
-    if (booking.classList.contains('booking__hidden')){
+    
+    if (!booking.classList.contains('booking__hidden')){
     const ComedianBlock = createComedianBlock(comedians, bookingComediansList);
     bookingComediansList.append(ComedianBlock);
     }

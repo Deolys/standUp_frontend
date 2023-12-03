@@ -1,8 +1,10 @@
 import { Notification } from "./notification";
 
+const API_URL = 'https://noiseless-nice-swift.glitch.me/'; //Взять после создания проекта на Glitch
+
 export const getComedians = async () => {
   try {
-    const response = await fetch('http://localhost:8080/comedians');
+    const response = await fetch(`${API_URL}comedians`);
     if(!response) {
       throw new Error(`Сервер вернул ошибку: ${response.status}`);
     }
@@ -17,7 +19,7 @@ export const getComedians = async () => {
 
 export const sendData = async (method, data, id) => {
   try {
-    const response = await fetch(`http://localhost:8080/clients${id ? `/${id}` : ""}`,
+    const response = await fetch(`${API_URL}clients${id ? `/${id}` : ""}`,
     {
     method,
     headers: {
